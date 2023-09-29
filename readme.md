@@ -1,5 +1,7 @@
 # Trabajo práctico N°1: ALU
 
+## Alumnos: Fabio Gazzoni - Evangelina Castellano 
+
 Se implemento en una FPGA Basys 3 una ALU parametrizable que consiste en:
 - N switches que se utilizarán para indicar el valor de los dos operadores y el código de operación.
 - Un botón para que al ser presionado se cargue el valor representado en los switches en el dato A.
@@ -34,3 +36,40 @@ El proyecto consiste en un módulo ALU que se encargará de realizar la operaci�
 ![modulo alu](images/alu_module.png)
 
 ### Modulo top
+
+TODO: Explicar
+
+
+### Testbench
+El operando A es _b10110011_ y el operando B es _b00000011_
+
+
+#### Operación: suma
+![suma](images/suma_operation.png)
+
+#### Operación: resta
+![resta](images/resta_operation.png)
+
+#### Operación: AND
+![and](images/and_operation.png)
+
+#### Operación: OR
+![or](images/or_operation.png)
+
+#### Operación: XOR
+![xor](images/xor_operation.png)
+
+##### Operación: SRA
+![SRA](images/sra_operation.png)
+
+##### Operación: SRL
+![SRL](images/srl_operation.png)
+
+##### Operación: XNOR
+![XNOR](images/xnor_operation.png)
+
+##### Operación invalida:
+![invalid](images/invalid_operation.png)
+
+
+

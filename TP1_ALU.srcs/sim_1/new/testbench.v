@@ -2,7 +2,6 @@
 
 module testbench ();
 
-    // Declarar y definir los valores de los parámetros
     parameter NB_IN         = 8;
     parameter NB_OUT        = 8;
     parameter NB_OPERATION  = 6;
@@ -41,26 +40,25 @@ end
 
 initial begin
 
-    // Registros inicializados en cero
+    // Initialize the registers to zero
     i_data_switch = {NB_IN {1'b0}};
     i_button_a_data = 1'b0;
     i_button_b_data = 1'b0;
     i_button_operation = 1'b0;
     i_button_result = 1'b0;
 
-    #2 i_data_switch = 8'b10110011; //operando a
-    #10 i_button_a_data = 1'b1; // se presiona el boton para cargar el operando a
-    #10 i_button_a_data = 1'b0; //se suelta el bonton para cargar el operando a
-    #2 i_data_switch = 8'b00000011; //operando b
-    #10 i_button_b_data = 1'b1;
-    #10 i_button_b_data = 1'b0;
+    #2 i_data_switch = 8'b10110011; // Operand A
+    #10 i_button_a_data = 1'b1;     // The button is pressed to load operand A
+    #10 i_button_a_data = 1'b0;     // The button is released 
+    #2 i_data_switch = 8'b00000011; // Operand B
+    #10 i_button_b_data = 1'b1;     // The button is pressed to load operand B
+    #10 i_button_b_data = 1'b0;     // The button is released 
 
-    #10 i_data_switch = 6'b000011; // sra
-    #10 i_button_operation = 1'b1;
-    #10 i_button_operation = 1'b0;
-
-    #10 i_button_result = 1'b1;    
-    #10 i_button_result = 1'b0; 
+    #10 i_data_switch = 6'b111111;  // NOR operation
+    #10 i_button_operation = 1'b1;  // The button is pressed to load the operation
+    #10 i_button_operation = 1'b0;  // The button is released 
+    #10 i_button_result = 1'b1;     // The button is pressed to load the result 
+    #10 i_button_result = 1'b0;     // The button is released 
 end    
 
 endmodule
