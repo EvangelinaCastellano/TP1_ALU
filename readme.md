@@ -7,6 +7,7 @@ Se implemento en una FPGA Basys 3 una ALU parametrizable que consiste en:
 - Un botón para que al ser presionado se cargue el valor representado en los switches en el dato A.
 - Un botón para que al ser presionado se cargue el valor representado en los switches en el dato B.
 - Un botón para que al ser presionado se cargue el valor representado en los switches en el código de operación.
+-  Un botón para que al ser presionado se muestre el resultado en los led's.
 - N LEDs que mostrarán el resultado de la operación realizada.
 
 En la imágen se puede observar su esquemático:
@@ -17,7 +18,7 @@ Las operaciones que realizará y sus respectivos códigos de operación se puede
 <center>
 
 | Operación | Código |
-|-----------|:------:|
+| --------- | :----: |
 | ADD       | 100000 |
 | SUB       | 100010 |
 | AND       | 100100 |
@@ -25,7 +26,7 @@ Las operaciones que realizará y sus respectivos códigos de operación se puede
 | XOR       | 100110 |
 | SRA       | 000011 |
 | SRL       | 000010 |
-| NOR       | 100111 | 
+| NOR       | 100111 |
 
 </center>
 
@@ -37,7 +38,20 @@ El proyecto consiste en un módulo ALU que se encargará de realizar la operaci�
 
 ### Modulo top
 
-TODO: Explicar
+El modulo top contiene como entrada:
+- N switches para ingresar el valor a almacenar.
+- 4 botones que se utilizan para:
+    - Almacenar el dato A.
+    - Almacenar el dato B.
+    - Almacenar el código de operación.
+    - Obtener el resultado de la operación en el bus de salida.
+    - Reset.
+
+Y contiene como salida:
+- N led's para indicar el resultado de la operación.
+
+ Cada valor es ingresado uno a la vez a traves de los switches y almacenado en su correspondiente registro a traves de los botones, ademas se tiene una instancia del modulo ALU que recibe estos valores y realiza la operación.
+ El resultado es mostrado en los led's conectados al bus de dato de salida.
 
 
 ### Testbench
